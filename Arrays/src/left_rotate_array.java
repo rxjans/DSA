@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class left_rotate_array {
-    public static void secondLargest(int[] arr){
+    public static void leftRotate(int[] arr){
         int temp = arr[0];
         for(int i=1; i<arr.length; i++) {
             arr[i - 1] = arr[i];
@@ -21,6 +21,6 @@ public class left_rotate_array {
         for(int i=0; i<arr.length; i++){
             arr[i] = sc.nextInt();
         }
-        secondLargest(arr);
+        leftRotate(arr);
     }
 }
