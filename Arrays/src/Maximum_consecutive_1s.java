@@ -1,21 +1,20 @@
 import java.util.Scanner;
 
-public class trapping_rain_water {
+public class Maximum_consecutive_1s {
 
     public static int water(int[] arr) {
-        int water = 0;
-        for(int i=1; i<arr.length-1; i++){
-            int leftMax = arr[i];
-            for(int j=0; j<i; j++){
-                leftMax = Math.max(arr[j], leftMax);
+        int result = 0;
+        int count = 0;
+        for(int i=0; i<arr.length; i++){
+            if(arr[i] != 1){
+                count = 0;
             }
-            int rightMax = arr[i];
-            for(int j=i+1; j<arr.length; j++){
-                rightMax = Math.max(arr[j], rightMax);
+            else if(arr[i] == 1){
+                count ++;
             }
-            water += Math.min(leftMax, rightMax) - arr[i];
+            result = Math.max(result, count);
         }
-        return water;
+        return result;
     }
 
     public static void main(String[] args) {
@@ -29,4 +28,5 @@ public class trapping_rain_water {
         }
         System.out.println(water(arr));
     }
+
 }
