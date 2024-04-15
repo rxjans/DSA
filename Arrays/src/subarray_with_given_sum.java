@@ -1,17 +1,18 @@
 import java.util.Scanner;
 
-public class maximum_sum_subarray {
+public class subarray_with_given_sum {
 
-    public static int sum(int[] arr) {
-        int max = arr[0];
+    public static boolean sum(int[] arr, int sum) {
         for(int i= 0; i<arr.length; i++){
             int curr = 0;
             for(int j =i; j<arr.length; j++){
                 curr = curr + arr[j];
-                max= Math.max(max, curr);
+                if(curr == sum){
+                    return true;
+                }
             }
         }
-        return max;
+        return false;
     }
 
     public static void main(String[] args) {
@@ -23,7 +24,9 @@ public class maximum_sum_subarray {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = sc.nextInt();
         }
-        System.out.println(sum(arr));
+        System.out.print("Enter subarray sum: ");
+        int sum = sc.nextInt();
+        System.out.println(sum(arr, sum));
     }
 
 }
