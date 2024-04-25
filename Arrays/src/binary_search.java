@@ -11,9 +11,9 @@ public class binary_search {
                 return mid;
             }
             else if(arr[mid]>k){
-                high -= 1;
+                high = mid-1;
             }
-            else low += 1;
+            else low = mid+1;
         }
         return -1;
     }
@@ -29,10 +29,7 @@ public class binary_search {
         }
         System.out.print("Enter the element to be searched: ");
         int k = sc.nextInt();
-        if(majority(arr, k) != -1){
-            System.out.println(majority(arr, k));
-        }
-
+        System.out.println(majority(arr, k));
     }
 
 }
