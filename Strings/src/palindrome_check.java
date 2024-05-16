@@ -1,11 +1,10 @@
-import java.util.Scanner;
+import java.util.*;
+public class palindrome_check {
 
-public class reverse_string {
-
-    public static StringBuilder palindrome(String str){
+    public static boolean palindrome(String str){
         StringBuilder rev = new StringBuilder(str);
         rev.reverse();
-        return rev;
+        return str.contentEquals(rev);
 
     }
 
@@ -13,7 +12,7 @@ public class reverse_string {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the string: ");
         String str = sc.nextLine();
-        System.out.print("Output: " + palindrome(str));
+        System.out.print(palindrome(str));
     }
 
 }
