@@ -7,7 +7,7 @@ public class repeating_element_first_occurrence {
         for(int i=0; i<k.length(); i++){
             count[k.charAt(i)]++;
         }
-        for(int i=0; i<count.length; i++){
+        for(int i=0; i<k.length(); i++){
             if(count[k.charAt(i)] > 1){
                 return i;
             }
