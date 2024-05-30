@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class median_two_sorted_arrays {
 
-    public static double median(int a1[], int a2[]){
+    public static double median(int[] a1, int[] a2){
         int begin = 0;
         int end = a1.length;
         int n1 = a1.length;
