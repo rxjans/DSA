@@ -1,7 +1,5 @@
-public class insert_first_last_delete_first_last {
-    insert_first_last_delete_first_last(){
-        this.size = 0;
-    }
+
+public class LL {
     Node head;
     private int size;
     class Node{
@@ -13,6 +11,22 @@ public class insert_first_last_delete_first_last {
             this.next = null;
             size++;
         }
+    }
+    public void reverse(){
+        if(head == null || head.next == null){
+            return;
+        }
+        Node prevNode = head;
+        Node currNode = head.next;
+        while(currNode != null){
+            Node nextNode = currNode.next;
+
+            currNode.next = prevNode;
+            prevNode = currNode;
+            currNode = nextNode;
+        }
+        head.next = null;
+        head = prevNode;
     }
 
     public void insertFirst(String data){
@@ -84,17 +98,17 @@ public class insert_first_last_delete_first_last {
         return size;
     }
 
-
     public static void main(String[] args) {
-        insert_first_last_delete_first_last list = new insert_first_last_delete_first_last();
+        LL list = new LL();
+        list.insertFirst("implementation");
         list.insertFirst("This");
-        list.insertFirst("This");
-        list.insertLast("is");
         list.insertLast("Linked List");
-        list.insertLast("implementation");
+        list.insertLast("is");
+        list.insertLast("This");
         list.insertLast("implementation");
         list.deleteFirst();
         list.deleteLast();
+        list.reverse();
         list.printList();
         System.out.println("The size of your list is: " + list.getSize());
     }
