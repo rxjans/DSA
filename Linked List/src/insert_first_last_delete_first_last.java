@@ -1,4 +1,4 @@
-public class insert_first_last {
+public class insert_first_last_delete_first_last {
     Node head;
     class Node{
         String data;
@@ -34,6 +34,33 @@ public class insert_first_last {
 
     }
 
+    public void deleteFirst(){
+        if(head == null){
+            System.out.println("List is already empty");
+            return;
+        }
+        head = head.next;
+    }
+
+    public void deleteLast(){
+        if(head == null){
+            System.out.println("List is already empty");
+            return;
+        }
+        if(head.next == null){
+            head = null;
+            return;
+        }
+        Node secondLastNode = head;
+        Node lastNode = head.next;
+        while(lastNode.next != null){
+            lastNode = lastNode.next;
+            secondLastNode = secondLastNode.next;
+        }
+        secondLastNode.next = null;
+    }
+
+
     public void printList(){
         if(head == null){
             System.out.println("list is empty");
@@ -48,11 +75,15 @@ public class insert_first_last {
 
 
     public static void main(String[] args) {
-        insert_first_last list = new insert_first_last();
+        insert_first_last_delete_first_last list = new insert_first_last_delete_first_last();
+        list.insertFirst("This");
         list.insertFirst("This");
         list.insertLast("is");
         list.insertLast("Linked List");
         list.insertLast("implementation");
+        list.insertLast("implementation");
+        list.deleteFirst();
+        list.deleteLast();
         list.printList();
     }
 }
