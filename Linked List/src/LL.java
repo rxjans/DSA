@@ -12,7 +12,7 @@ public class LL {
             size++;
         }
     }
-    public void reverse(){
+    public void reverseIterative(){
         if(head == null || head.next == null){
             return;
         }
@@ -20,14 +20,27 @@ public class LL {
         Node currNode = head.next;
         while(currNode != null){
             Node nextNode = currNode.next;
-
             currNode.next = prevNode;
+
+            //update
             prevNode = currNode;
             currNode = nextNode;
         }
         head.next = null;
         head = prevNode;
     }
+
+    public Node reverseRecursive(Node head){
+        if(head == null || head.next == null){
+            return head;
+        }
+        Node newHead = reverseRecursive(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return newHead;
+    }
+
 
     public void insertFirst(String data){
         Node newNode = new Node(data);
@@ -108,7 +121,7 @@ public class LL {
         list.insertLast("implementation");
         list.deleteFirst();
         list.deleteLast();
-        list.reverse();
+        list.head = list.reverseRecursive(list.head);
         list.printList();
         System.out.println("The size of your list is: " + list.getSize());
     }
