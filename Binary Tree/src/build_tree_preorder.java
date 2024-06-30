@@ -45,8 +45,15 @@ public class build_tree_preorder {
         if(root != null){
             postorder(root.left);
             postorder(root.right);
-            System.out.println(root.data + " ");
+            System.out.print(root.data + " ");
         }
+    }
+
+    static int height(Node root){
+        if(root == null){
+            return 0;
+        }
+        return Math.max(height(root.left), height(root.right)) + 1;
     }
 
     public static void main(String[] args) {
@@ -58,8 +65,9 @@ public class build_tree_preorder {
         inorder(root);
         System.out.print("\nPreorder traversal is: ");
         preorder(root);
-        System.out.println("\nPostorder traversal is: ");
+        System.out.print("\nPostorder traversal is: ");
         postorder(root);
+        System.out.println("\nheight of tree: " + height(root));
     }
 
 }
