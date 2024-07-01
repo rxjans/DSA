@@ -1,4 +1,5 @@
-public class build_tree_preorder {
+public class inorder_postorder_preorder {
+
     static class Node{
         int data;
         Node left;
@@ -49,24 +50,6 @@ public class build_tree_preorder {
         }
     }
 
-    static int height(Node root){
-        if(root == null){
-            return 0;
-        }
-        return Math.max(height(root.left), height(root.right)) + 1;
-    }
-
-    static void printkdist(Node root, int k){
-        if(root == null){
-            return;
-        }
-        if(k == 0){
-            System.out.print(root.data + " ");
-        }
-        printkdist(root.left, k-1);
-        printkdist(root.right, k-1);
-    }
-
     public static void main(String[] args) {
         int[] nodes = {1, 2 , 4, -1,-1, 5, -1, -1, 3, -1, 6, -1, -1};
         BinaryTree tree = new BinaryTree();
@@ -78,13 +61,6 @@ public class build_tree_preorder {
         preorder(root);
         System.out.print("\nPostorder traversal is: ");
         postorder(root);
-        System.out.println("\nheight of tree: " + height(root));
-        System.out.print("k(2) distance nodes: ");
-        printkdist(root, 2);
-        System.out.print("\nlevel order traversal is: ");
-        for(int i=0; i<height(root); i++){
-            printkdist(root, i);
-        }
     }
 
 }

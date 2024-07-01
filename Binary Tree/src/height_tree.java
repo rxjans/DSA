@@ -1,4 +1,5 @@
-public class build_tree_preorder {
+public class height_tree {
+
     static class Node{
         int data;
         Node left;
@@ -25,29 +26,7 @@ public class build_tree_preorder {
         }
     }
 
-    static void inorder(Node root){
-        if(root != null){
-            inorder(root.left);
-            System.out.print(root.data + " ");
-            inorder(root.right);
-        }
-    }
 
-    static void preorder(Node root){
-        if(root != null){
-            System.out.print(root.data + " ");
-            preorder(root.left);
-            preorder(root.right);
-        }
-    }
-
-    static void postorder(Node root){
-        if(root != null){
-            postorder(root.left);
-            postorder(root.right);
-            System.out.print(root.data + " ");
-        }
-    }
 
     static int height(Node root){
         if(root == null){
@@ -72,19 +51,7 @@ public class build_tree_preorder {
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
         System.out.println(root.data);
-        System.out.print("Inorder traversal is: ");
-        inorder(root);
-        System.out.print("\nPreorder traversal is: ");
-        preorder(root);
-        System.out.print("\nPostorder traversal is: ");
-        postorder(root);
         System.out.println("\nheight of tree: " + height(root));
-        System.out.print("k(2) distance nodes: ");
-        printkdist(root, 2);
-        System.out.print("\nlevel order traversal is: ");
-        for(int i=0; i<height(root); i++){
-            printkdist(root, i);
-        }
     }
 
 }
