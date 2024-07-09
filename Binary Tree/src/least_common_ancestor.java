@@ -31,18 +31,26 @@ public class least_common_ancestor {
             }
         }
         static boolean findPath(Node root, ArrayList<Node> path, int n){
-            if(root == null){
-                return false;
-            }
+            if(root == null) return false;
             path.add(root);
-            if(root.data == n){
-                return true;
-            }
-            if(findPath(root.left, path, n) || findPath(root.right, path, n)){
-                return true;
-            }
+            if(root.data == n) return true;
+            if(findPath(root.left, path, n) || findPath(root.right, path, n)) return true;
             path.remove(path.size()-1);
             return false;
+        }
+
+        static Node findPath2(Node root, int n1, int n2){
+            if(root == null) return null;
+            if(root.data == n1 || root.data == n2) return root;
+            Node lca1 = findPath2(root.left, n1, n2);
+            Node lca2 = findPath2(root.right, n1, n2);
+            if(lca1 != null && lca2 != null){
+                return root;
+            }
+            if(lca1 != null){
+                return lca1;
+            }
+            else return lca2;
         }
 
         static Node lca(Node root, int n1, int n2){
