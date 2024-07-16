@@ -1,8 +1,6 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 
-public class least_common_ancestor {
+public class lowest_common_ancestor {
 
 
         static class Node{
