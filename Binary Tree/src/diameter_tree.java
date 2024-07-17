@@ -52,8 +52,8 @@ public class diameter_tree {
         if(root == null){
             return 0;
         }
-        int lh = height(root.left);
-        int rh = height(root.right);
+        int lh = diameter2(root.left);
+        int rh = diameter2(root.right);
         res = Math.max(res, 1+lh+rh);
         return 1 + Math.max(lh, rh);
     }
