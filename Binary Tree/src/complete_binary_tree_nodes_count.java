@@ -36,6 +36,25 @@ public class complete_binary_tree_nodes_count {
             return 1 + countNodes(root.left) + countNodes(root.right);
         }
 
+        static int countNodes2(Node root){
+            int lh = 0;
+            int rh=0;
+            Node curr = root;
+            while(curr != null){
+                lh++;
+                curr = curr.left;
+            }
+            curr = root;
+            while(curr != null){
+                rh++;
+                curr = curr.right;
+            }
+            if(lh == rh){
+                return (int)Math.pow(2, lh) -1;
+            }
+            return 1+countNodes(root.left) + countNodes(root.right);
+        }
+
         public static void main(String[] args) {
             int[] nodes = {1, 2 , 4, -1,-1, 5, -1, -1, 3, -1, 6, -1, -1};
             BinaryTree tree = new BinaryTree();
