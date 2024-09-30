@@ -26,8 +26,8 @@ class Solution1{
                 res[k++] = arr[i].getPrice();
             }
         }
-        for(int i = 0; i<res.length; i++){
-            for(int j = i; j<res.length-i-1; j++){
+        for(int i = 0; i<res.length-1; i++){
+            for(int j = 0; j<res.length-i-1; j++){
                 if(res[j] > res[j+1]){
                     int temp = res[j];
                     res[j] = res[j+1];
