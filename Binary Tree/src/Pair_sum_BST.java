@@ -11,7 +11,7 @@ public class Pair_sum_BST {
             this.right = null;
         }
     }
-    
+
     class Solution {
         boolean findTarget(Node root, int target) {
             // Write your code here
